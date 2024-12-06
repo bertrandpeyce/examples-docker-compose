@@ -1,0 +1,6 @@
+include: 
+  - volumes.yml
+  - network.yml
+  - wordpress.yml
+  - mysql.yml
+

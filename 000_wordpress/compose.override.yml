@@ -1,0 +1,20 @@
+# Override compose file
+# Services to override
+services:
+  # Override Service WordPress
+  wordpress:
+    environment:
+      # Use docker dns to resolve hostname
+      # mysqldb is defined in same network as wordpress
+      WORDPRESS_DB_HOST: mysqldb
+    depends_on:
+      - mysqldb
+    networks:
+      - wordpress-network
+
+  # Override Service MySQL
+  mysqldb:
+    # Define MySQL in same network as WordPress
+    networks:
+      - wordpress-network
+
